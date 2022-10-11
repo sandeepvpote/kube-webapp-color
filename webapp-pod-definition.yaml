@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webapp-colorfont
+  labels:
+    app: colorfont-app
+spec:
+  containers:
+    - name: webapp-colorfont
+      image: sandeepvpote/webapp-colorandfont
+      ports:
+        - containerPort: 8080
+      #args: ["--color=red", "--font=Verdana"]
+      envFrom:
+        - configMapRef:
+            name: webapp-config            
